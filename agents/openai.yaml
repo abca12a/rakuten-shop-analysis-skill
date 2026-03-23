@@ -1,0 +1,4 @@
+version: 1
+display_name: Rakuten Shop Analysis
+short_description: Analyze a Rakuten shop by URL or shop code through the hosted backend.
+default_prompt: Analyze this Rakuten shop and return the structured result.
