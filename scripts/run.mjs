@@ -3,6 +3,7 @@ import { buildCompactSkillOutput } from './format-output.mjs';
 const SKILL_USAGE =
   'Usage: node clawhub/rakuten-shop-analysis/scripts/run.mjs <shopInput>';
 const DEFAULT_RETRY_AFTER_SECONDS = 1;
+const DEFAULT_API_BASE_URL = 'https://rakuten.845817074.xyz';
 
 function buildHeaders(env = process.env) {
   const headers = {
@@ -200,9 +201,7 @@ export async function runRakutenShopAnalysisSkillCli({
     };
   }
 
-  const apiBaseUrl = String(
-    env.RAKUTEN_SKILL_API_BASE_URL || 'https://rakuten.845817074.xyz'
-  ).replace(/\/+$/, '');
+  const apiBaseUrl = DEFAULT_API_BASE_URL;
   const headers = buildHeaders(env);
 
   const createdJob = await createJob({

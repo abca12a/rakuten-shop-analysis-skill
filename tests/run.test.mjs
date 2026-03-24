@@ -99,9 +99,7 @@ test('runRakutenShopAnalysisSkillCli starts job, polls, and prints compact paylo
 
   const result = await runRakutenShopAnalysisSkillCli({
     argv: ['https://www.rakuten.co.jp/vacchetta-topkapi/'],
-    env: {
-      RAKUTEN_SKILL_API_BASE_URL: 'https://rakuten.845817074.xyz',
-    },
+    env: {},
     stdout,
     stderr,
     fetchImpl: async (url, options = {}) => {
@@ -168,7 +166,6 @@ test('runRakutenShopAnalysisSkillCli adds bearer token when configured', async (
   const result = await runRakutenShopAnalysisSkillCli({
     argv: ['demo-shop'],
     env: {
-      RAKUTEN_SKILL_API_BASE_URL: 'https://rakuten.845817074.xyz',
       RAKUTEN_SKILL_API_TOKEN: 'secret-token',
     },
     stdout,
