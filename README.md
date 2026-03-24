@@ -2,6 +2,18 @@
 
 独立分发用 OpenClaw skill 仓库。
 
+## 安装
+
+OpenClaw 里直接安装这个 GitHub 仓库：
+
+```text
+https://github.com/abca12a/rakuten-shop-analysis-skill
+```
+
+安装后可直接匿名试用；如果要更高额度，再配置 `RAKUTEN_SKILL_API_TOKEN`。
+
+## 说明
+
 这个仓库只包含 skill 本体，不包含后端抓取服务。skill 会调用已部署公网后端：
 
 ```bash
@@ -37,6 +49,5 @@ node scripts/run.mjs vacchetta-topkapi
 
 ## 分发建议
 
-- GitHub 仓库根目录直接保持当前结构
-- 对外说明安装来源为该仓库根目录
-- skill 的 `Display name` 建议用 `Rakuten Shop Analysis`
+- 对外直接给这个 GitHub 地址即可
+- `Display name` 建议用 `Rakuten Shop Analysis`
