@@ -19,6 +19,9 @@ https://github.com/abca12a/rakuten-shop-analysis-skill
 
 安装后可直接匿名试用；如果要更高额度，再配置 `RAKUTEN_SKILL_API_TOKEN`。
 
+普通用户默认不需要设置 `RAKUTEN_SKILL_API_BASE_URL`。
+直接贴乐天店铺链接给 OpenClaw 就可以用。
+
 ## 如何使用
 
 安装完成后，直接对 OpenClaw 说这类话即可：

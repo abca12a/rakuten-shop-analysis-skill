@@ -14,6 +14,9 @@ metadata:
 - 乐天店铺 URL
 - 乐天 `shopCode`
 
+普通用户默认**不需要**手动设置 `RAKUTEN_SKILL_API_BASE_URL`。
+如果 skill 已正确安装，直接提供店铺链接或 `shopCode` 即可。
+
 默认 API 地址：
 
 ```bash
@@ -45,3 +48,11 @@ node <skill_dir>/scripts/run.mjs <shopInput>
 - 配置 token 时自动附带 `Authorization: Bearer ...`
 - 遇到短期限流 (`429`) 时会按 `Retry-After` 自动重试
 - 只负责请求云端 API，不在本地执行 Rakuten 抓取逻辑
+
+面向终端用户的推荐说法：
+
+- `分析这个乐天店铺：https://www.rakuten.co.jp/vacchetta-topkapi/`
+- `帮我分析这个乐天店铺：vacchetta-topkapi`
+- `帮我出一份这个乐天店铺的分析报告：https://www.rakuten.co.jp/vacchetta-topkapi/`
+
+不要先要求用户输入环境变量，除非对方明确在做高级配置或自定义后端地址。

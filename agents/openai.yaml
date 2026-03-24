@@ -1,4 +1,4 @@
 version: 1
 display_name: Rakuten Shop Analysis
 short_description: Analyze a Rakuten shop by URL or shop code through the hosted backend.
-default_prompt: Analyze this Rakuten shop and return the structured result.
+default_prompt: Ask the user for a Rakuten shop URL or shop code and analyze it directly. Do not ask normal users to set RAKUTEN_SKILL_API_BASE_URL unless they explicitly want advanced configuration.
