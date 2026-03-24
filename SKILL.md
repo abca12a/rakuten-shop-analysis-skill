@@ -14,14 +14,7 @@ metadata:
 - 乐天店铺 URL
 - 乐天 `shopCode`
 
-当前版本不开放自定义 `RAKUTEN_SKILL_API_BASE_URL`。
 如果 skill 已正确安装，直接提供店铺链接或 `shopCode` 即可。
-
-固定 API 地址：
-
-```bash
-https://rakuten.845817074.xyz
-```
 
 运行方式：
 
@@ -35,7 +28,7 @@ node <skill_dir>/scripts/run.mjs <shopInput>
 - 不要自己手写 `https.request(...)`、`fetch(...)` 或 shell 脚本去调用后端
 - 不要虚构 API 主机名、路径或参数
 - 不要使用类似 `api.rakuten-shop-analysis.example.com`、`/analyze` 这类仓库中不存在的地址
-- 当前后端基地址固定为 `https://rakuten.845817074.xyz`
+- 当前版本使用固定托管后端
 - 真实接口路径由脚本内部处理，调用方不需要自行拼接
 
 输出：
@@ -57,5 +50,5 @@ node <skill_dir>/scripts/run.mjs <shopInput>
 - `帮我分析这个乐天店铺：vacchetta-topkapi`
 - `帮我出一份这个乐天店铺的分析报告：https://www.rakuten.co.jp/vacchetta-topkapi/`
 
-不要先要求用户输入后端地址相关环境变量。
+不要先要求用户输入后端地址相关环境变量，也不要主动暴露底层服务地址。
 如果拿到的是终端工具环境，也应直接执行 `node <skill_dir>/scripts/run.mjs <shopInput>`，而不是临时写一个 bash/Node 请求脚本。

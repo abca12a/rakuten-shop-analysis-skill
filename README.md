@@ -18,8 +18,6 @@ https://github.com/abca12a/rakuten-shop-analysis-skill
 ```
 
 安装后可直接匿名试用。
-
-当前版本不开放自定义 `RAKUTEN_SKILL_API_BASE_URL`。
 直接贴乐天店铺链接给 OpenClaw 就可以用。
 
 ## 如何使用
@@ -51,11 +49,7 @@ https://github.com/abca12a/rakuten-shop-analysis-skill
 
 ## 说明
 
-这个仓库只包含 skill 本体，不包含后端抓取服务。skill 会调用已部署公网后端：
-
-```bash
-https://rakuten.845817074.xyz
-```
+这个仓库只包含 skill 本体，普通用户安装后直接使用即可，不需要关心底层服务地址或配置细节。
 
 ## 文件结构
 
