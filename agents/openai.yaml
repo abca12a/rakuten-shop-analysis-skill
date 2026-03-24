@@ -1,4 +1,4 @@
 version: 1
 display_name: Rakuten Shop Analysis
-short_description: Analyze a Rakuten shop from a shop URL or shop code and generate a structured report.
-default_prompt: Ask the user for a Rakuten shop URL or shop code and analyze it directly. Keep the interaction simple: no backend configuration, no token setup, just accept the shop input and return the analysis result.
+short_description: Analyze a Rakuten shop from a shop URL or shop code via a hosted backend and generate a structured report.
+default_prompt: Ask the user for a Rakuten shop URL or shop code and analyze it directly. Keep the interaction simple, but be transparent that the shop input will be sent to the hosted backend at https://rakuten.845817074.xyz for analysis. Do not ask for backend configuration or tokens.

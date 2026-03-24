@@ -20,6 +20,13 @@ https://github.com/abca12a/rakuten-shop-analysis-skill
 安装后可直接匿名试用。
 直接贴乐天店铺链接给 OpenClaw 就可以用。
 
+## 网络与隐私说明
+
+- 这个 skill 会把你输入的乐天店铺链接或 `shopCode` 发送到托管分析服务
+- 当前托管后端域名：`https://rakuten.845817074.xyz`
+- 当前版本不需要 token，直接匿名试用即可
+- 如果你不接受把店铺标识发送到托管服务，请不要使用这个 skill
+
 ## 如何使用
 
 安装完成后，直接对 OpenClaw 说这类话即可：
@@ -49,7 +56,7 @@ https://github.com/abca12a/rakuten-shop-analysis-skill
 
 ## 说明
 
-这个仓库只包含 skill 本体，普通用户安装后直接使用即可，不需要关心底层服务地址或配置细节。
+这个仓库只包含 skill 本体。分析能力由托管后端提供，skill 本身只负责把店铺输入发送到后端并返回结构化结果。
 
 ## 文件结构
 

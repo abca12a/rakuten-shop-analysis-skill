@@ -215,9 +215,6 @@ test('runRakutenShopAnalysisSkillCli retries on rate limit responses', async () 
 
   const result = await runRakutenShopAnalysisSkillCli({
     argv: ['retry-shop'],
-    env: {
-      RAKUTEN_SKILL_API_BASE_URL: 'https://rakuten.845817074.xyz',
-    },
     stdout,
     stderr,
     fetchImpl: async (url, options = {}) => {
