@@ -35,6 +35,15 @@ RAKUTEN_SKILL_API_TOKEN=...
 node <skill_dir>/scripts/run.mjs <shopInput>
 ```
 
+执行要求：
+
+- 必须优先运行仓库自带脚本 `scripts/run.mjs`
+- 不要自己手写 `https.request(...)`、`fetch(...)` 或 shell 脚本去调用后端
+- 不要虚构 API 主机名、路径或参数
+- 不要使用类似 `api.rakuten-shop-analysis.example.com`、`/analyze` 这类仓库中不存在的地址
+- 默认后端基地址就是 `https://rakuten.845817074.xyz`
+- 真实接口路径由脚本内部处理，调用方不需要自行拼接
+
 输出：
 
 - 紧凑 JSON
@@ -56,3 +65,4 @@ node <skill_dir>/scripts/run.mjs <shopInput>
 - `帮我出一份这个乐天店铺的分析报告：https://www.rakuten.co.jp/vacchetta-topkapi/`
 
 不要先要求用户输入环境变量，除非对方明确在做高级配置或自定义后端地址。
+如果拿到的是终端工具环境，也应直接执行 `node <skill_dir>/scripts/run.mjs <shopInput>`，而不是临时写一个 bash/Node 请求脚本。
