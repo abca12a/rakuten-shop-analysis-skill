@@ -56,3 +56,11 @@ metadata:
 - 当前匿名限额：每个 IP 每 60 秒最多 30 次 API 请求
 - 如果限流，等待约 1 分钟后再试即可
 - 当前版本不需要配置 token，也不需要配置后端地址
+
+## 执行约束
+
+- 必须使用 skill 自带执行入口，不要临时改用别的实现
+- 不要 `write_file` 生成临时 JS/Python/Bash 抓取脚本
+- 不要自行用 `axios`、`fetch`、`https.request`、`cheerio`、浏览器抓取等方式直接抓 Rakuten 页面
+- 不要绕过 skill，自行拼接不存在的 API 主机、路径或参数
+- 目标是调用托管分析服务并返回结果，而不是现场重写一个新的 Rakuten 抓取器
