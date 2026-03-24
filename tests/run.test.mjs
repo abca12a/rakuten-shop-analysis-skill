@@ -126,67 +126,6 @@ test('runRakutenShopAnalysisSkillCli starts job, polls, and prints compact paylo
   assert.equal(stderr.toString(), '');
 });
 
-test('runRakutenShopAnalysisSkillCli adds bearer token when configured', async () => {
-  const stdout = createStreamCollector();
-  const stderr = createStreamCollector();
-  const requests = [];
-
-  const responseQueue = [
-    {
-      status: 202,
-      json: async () => ({
-        jobId: 'job-1',
-        status: 'running',
-        shopCode: 'demo-shop',
-      }),
-    },
-    {
-      status: 200,
-      json: async () => ({
-        jobId: 'job-1',
-        status: 'completed',
-        shopCode: 'demo-shop',
-      }),
-    },
-    {
-      status: 200,
-      json: async () => ({
-        shop: {
-          shopCode: 'demo-shop',
-          catalogSize: 12,
-        },
-        buckets: [],
-        capabilities: {
-          degradedCapabilities: [],
-        },
-      }),
-    },
-  ];
-
-  const result = await runRakutenShopAnalysisSkillCli({
-    argv: ['demo-shop'],
-    env: {
-      RAKUTEN_SKILL_API_TOKEN: 'secret-token',
-    },
-    stdout,
-    stderr,
-    fetchImpl: async (url, options = {}) => {
-      requests.push({
-        url,
-        options,
-      });
-      return responseQueue.shift();
-    },
-    sleepImpl: async () => {},
-  });
-
-  assert.equal(result.exitCode, 0);
-  assert.equal(
-    requests[0].options.headers.authorization,
-    'Bearer secret-token'
-  );
-});
-
 test('runRakutenShopAnalysisSkillCli retries on rate limit responses', async () => {
   const stdout = createStreamCollector();
   const stderr = createStreamCollector();

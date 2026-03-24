@@ -23,12 +23,6 @@ metadata:
 https://rakuten.845817074.xyz
 ```
 
-可选 token：
-
-```bash
-RAKUTEN_SKILL_API_TOKEN=...
-```
-
 运行方式：
 
 ```bash
@@ -54,7 +48,6 @@ node <skill_dir>/scripts/run.mjs <shopInput>
 规则：
 
 - 未配置 token 时走匿名试用通道
-- 配置 token 时自动附带 `Authorization: Bearer ...`
 - 遇到短期限流 (`429`) 时会按 `Retry-After` 自动重试
 - 只负责请求云端 API，不在本地执行 Rakuten 抓取逻辑
 

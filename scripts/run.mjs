@@ -5,15 +5,10 @@ const SKILL_USAGE =
 const DEFAULT_RETRY_AFTER_SECONDS = 1;
 const DEFAULT_API_BASE_URL = 'https://rakuten.845817074.xyz';
 
-function buildHeaders(env = process.env) {
-  const headers = {
+function buildHeaders() {
+  return {
     'content-type': 'application/json',
   };
-  const token = String(env.RAKUTEN_SKILL_API_TOKEN || '').trim();
-  if (token) {
-    headers.authorization = `Bearer ${token}`;
-  }
-  return headers;
 }
 
 function readHeader(response, headerName) {
@@ -186,7 +181,6 @@ function defaultSleep(ms) {
 
 export async function runRakutenShopAnalysisSkillCli({
   argv = process.argv.slice(2),
-  env = process.env,
   stdout = process.stdout,
   stderr = process.stderr,
   fetchImpl = fetch,
@@ -202,7 +196,7 @@ export async function runRakutenShopAnalysisSkillCli({
   }
 
   const apiBaseUrl = DEFAULT_API_BASE_URL;
-  const headers = buildHeaders(env);
+  const headers = buildHeaders();
 
   const createdJob = await createJob({
     apiBaseUrl,

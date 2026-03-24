@@ -17,7 +17,7 @@ OpenClaw 里直接安装这个 GitHub 仓库：
 https://github.com/abca12a/rakuten-shop-analysis-skill
 ```
 
-安装后可直接匿名试用；如果要更高额度，再配置 `RAKUTEN_SKILL_API_TOKEN`。
+安装后可直接匿名试用。
 
 当前版本不开放自定义 `RAKUTEN_SKILL_API_BASE_URL`。
 直接贴乐天店铺链接给 OpenClaw 就可以用。
@@ -45,9 +45,9 @@ https://github.com/abca12a/rakuten-shop-analysis-skill
 当前匿名试用通道已开启。
 
 - 当前限额：每个 IP 每 60 秒最多 30 次 API 请求
-- 不需要先配置 token 就能直接试用
+- 不需要先配置任何 token 就能直接试用
 - 如果出现限流，等待约 1 分钟后再试即可
-- 高并发或长期使用建议配置 `RAKUTEN_SKILL_API_TOKEN`
+- 当前版本不开放 token 配置入口
 
 ## 说明
 
@@ -66,15 +66,6 @@ scripts/run.mjs
 scripts/format-output.mjs
 tests/run.test.mjs
 ```
-
-## 可选环境变量
-
-```bash
-RAKUTEN_SKILL_API_TOKEN=your-token
-```
-
-- 不配置 `RAKUTEN_SKILL_API_TOKEN` 时走匿名试用
-- 配置 token 后走认证额度
 
 ## 本地验证
 
