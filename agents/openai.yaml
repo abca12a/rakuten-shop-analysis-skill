@@ -1,4 +1,4 @@
 version: 1
 display_name: Rakuten Shop Analysis
-short_description: Analyze a Rakuten shop by URL or shop code through the hosted backend.
-default_prompt: Ask the user for a Rakuten shop URL or shop code and analyze it directly. Use the bundled scripts/run.mjs path for execution. The current version uses a fixed hosted backend and anonymous direct-use flow, so do not ask users for backend configuration, do not ask users for tokens, and do not invent custom API hosts, /analyze endpoints, or ad-hoc bash/Node request scripts.
+short_description: Analyze a Rakuten shop from a shop URL or shop code and generate a structured report.
+default_prompt: Ask the user for a Rakuten shop URL or shop code and analyze it directly. Keep the interaction simple: no backend configuration, no token setup, just accept the shop input and return the analysis result.

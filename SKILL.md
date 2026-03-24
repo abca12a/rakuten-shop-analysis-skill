@@ -1,6 +1,6 @@
 ---
 name: rakuten-shop-analysis
-description: 调用云端 Rakuten 店铺分析后端。用户提供乐天店铺 URL 或 shop code 时使用，返回结构化 summary、可用 bucket 样本和降级原因码。适合竞品尽调、店铺结构分析和爆款样本提取。
+description: 用于分析 Rakuten 乐天店铺。用户提供店铺链接或 shopCode 时使用，适合竞品研究、店铺结构分析和快速出报告。
 metadata:
   openclaw:
     requires:
@@ -9,46 +9,43 @@ metadata:
 
 # Rakuten Shop Analysis
 
-调用云端后端分析 Rakuten 店铺，输入只支持：
+分析 Rakuten 乐天店铺，并返回结构化结果。
 
-- 乐天店铺 URL
+适合用于：
+
+- 店铺分析
+- 竞品研究
+- 爆款样本查看
+- 快速出分析报告
+
+支持输入：
+
+- 乐天店铺链接
 - 乐天 `shopCode`
 
-如果 skill 已正确安装，直接提供店铺链接或 `shopCode` 即可。
+## 如何使用
 
-运行方式：
+安装后，直接对 OpenClaw 说：
 
-```bash
-node <skill_dir>/scripts/run.mjs <shopInput>
+```text
+分析这个乐天店铺：https://www.rakuten.co.jp/vacchetta-topkapi/
 ```
 
-执行要求：
+或者：
 
-- 必须优先运行仓库自带脚本 `scripts/run.mjs`
-- 不要自己手写 `https.request(...)`、`fetch(...)` 或 shell 脚本去调用后端
-- 不要虚构 API 主机名、路径或参数
-- 不要使用类似 `api.rakuten-shop-analysis.example.com`、`/analyze` 这类仓库中不存在的地址
-- 当前版本使用固定托管后端
-- 真实接口路径由脚本内部处理，调用方不需要自行拼接
+```text
+帮我出一份这个乐天店铺的分析报告：https://www.rakuten.co.jp/vacchetta-topkapi/
+```
 
-输出：
+也可以直接输入 `shopCode`：
 
-- 紧凑 JSON
-- 包含 `summary`
-- 包含所有 `availableBuckets`
-- 包含 `degradedReasonCodes`
+```text
+分析这个乐天店铺：vacchetta-topkapi
+```
 
-规则：
+## 当前说明
 
-- 未配置 token 时走匿名试用通道
-- 遇到短期限流 (`429`) 时会按 `Retry-After` 自动重试
-- 只负责请求云端 API，不在本地执行 Rakuten 抓取逻辑
-
-面向终端用户的推荐说法：
-
-- `分析这个乐天店铺：https://www.rakuten.co.jp/vacchetta-topkapi/`
-- `帮我分析这个乐天店铺：vacchetta-topkapi`
-- `帮我出一份这个乐天店铺的分析报告：https://www.rakuten.co.jp/vacchetta-topkapi/`
-
-不要先要求用户输入后端地址相关环境变量，也不要主动暴露底层服务地址。
-如果拿到的是终端工具环境，也应直接执行 `node <skill_dir>/scripts/run.mjs <shopInput>`，而不是临时写一个 bash/Node 请求脚本。
+- 安装后可直接匿名试用
+- 当前匿名限额：每个 IP 每 60 秒最多 30 次 API 请求
+- 如果限流，等待约 1 分钟后再试即可
+- 当前版本不需要配置 token，也不需要配置后端地址
