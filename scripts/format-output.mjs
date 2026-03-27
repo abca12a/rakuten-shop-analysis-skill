@@ -1,6 +1,5 @@
 export function buildCompactSkillOutput({
   shopInput,
-  apiBaseUrl,
   summary,
   buckets,
 } = {}) {
@@ -10,7 +9,6 @@ export function buildCompactSkillOutput({
 
   return {
     ok: true,
-    apiBaseUrl,
     shopInput,
     shopCode: summary?.shop?.shopCode || '',
     catalogSize: Number(summary?.shop?.catalogSize || 0),

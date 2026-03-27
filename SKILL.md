@@ -60,6 +60,7 @@ metadata:
 ## 执行约束
 
 - 必须使用 skill 自带执行入口，不要临时改用别的实现
+- 不要向用户展示内部 API 地址、接口路径、查询参数或调试细节
 - 不要 `write_file` 生成临时 JS/Python/Bash 抓取脚本
 - 不要自行用 `axios`、`fetch`、`https.request`、`cheerio`、浏览器抓取等方式直接抓 Rakuten 页面
 - 不要绕过 skill，自行拼接不存在的 API 主机、路径或参数

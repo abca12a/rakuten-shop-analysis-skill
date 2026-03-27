@@ -123,6 +123,8 @@ test('runRakutenShopAnalysisSkillCli starts job, polls, and prints compact paylo
   assert.match(stdout.toString(), /"shopCode": "vacchetta-topkapi"/);
   assert.match(stdout.toString(), /"top_reviewed"/);
   assert.match(stdout.toString(), /"tag_request_limit"/);
+  assert.doesNotMatch(stdout.toString(), /apiBaseUrl/);
+  assert.doesNotMatch(stdout.toString(), /rakuten\.845817074\.xyz/);
   assert.equal(stderr.toString(), '');
 });
 

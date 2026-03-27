@@ -229,7 +229,6 @@ export async function runRakutenShopAnalysisSkillCli({
   });
   const output = buildCompactSkillOutput({
     shopInput,
-    apiBaseUrl,
     summary,
     buckets,
   });
